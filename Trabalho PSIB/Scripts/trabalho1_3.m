@@ -43,23 +43,27 @@ title('Ensemble Averaging para 1000 respostas');
 f=(0:N-1)*(fs/N); %  alcance da frequencia
 YI1 = abs((fft(mean(novo(1:25,:)))).^2);  % calculo do espectro de potencia - 25 respostas
 YI2 = abs((fft(mean(novo(1:100,:)))).^2); % calculo do espectro de potencia - 100 respostas
-YI3 = abs((fft(mean(novo(1:1000,:)))).^2); % calculo do esprecto de ptencia - 1000 respostas 
+YI3 = abs((fft(mean(novo(1:1000,:)))).^2); % calculo do espectro de potencia - 1000 respostas 
+YI4 = abs((fft(mean(novo(end-1:end,:)))).^2); %Calculo do espectro de potencia de resposta individual
 
-YI4 = abs((fft(mean(novo(1, :)))).^2);
 figure(2);
 subplot(221);
 plot(f(1:N),YI1(1:end),'k'); % reprecentação grafica do espetro de potencia YI1 a preto
 xlabel('Frequency (hz)');
 ylabel('Power Spectrum');
+title('25 Respostas');
 subplot(222);
 plot(f(1:N),YI2(1:end),'r');  % reprecentação grafica do espetro de potencia YI2 a vermelho
 xlabel('Frequency (hz)');
 ylabel('Power Spectrum');
+title('100 Respostas');
 subplot(223);
 plot(f(1:N),YI3(1:end),'b');  % reprecentação grafica do espetro de potencia YI3 a azul
 xlabel('Frequency (hz)');
 ylabel('Power Spectrum');
+title('1000 Respostas');
 subplot(224);
-plot(f(1:N),YI4(1:end),'c');  % reprecentação grafica do espetro de potencia YI3 a azul
+plot(f(1:N),YI4(1:end),'c');  % reprecentação grafica do espetro de potencia YI4 a azul
 xlabel('Frequency (hz)');
 ylabel('Power Spectrum');
+title('Resposta Individul');
